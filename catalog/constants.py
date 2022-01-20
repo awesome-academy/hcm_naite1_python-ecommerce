@@ -1,0 +1,1 @@
+STATUS_CHOICE=(('N','NEW'),('C','CANCELLED'),('R','REJECTED'),('A','APPROVED'))
