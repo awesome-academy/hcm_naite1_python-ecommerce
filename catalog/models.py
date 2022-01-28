@@ -4,7 +4,11 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
+<<<<<<< HEAD
 import catalog.constants as c 
+=======
+import catalog.constants as c   
+>>>>>>> Show Cake
 
 class Customer (models.Model):
     customer = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -12,7 +16,12 @@ class Customer (models.Model):
     email = models.EmailField()
     
     def __str__(self):
+<<<<<<< HEAD
         return str(self.name)   
+=======
+        return str(self.name)
+    
+>>>>>>> Show Cake
 class Address(models.Model):
     user = models.ForeignKey(Customer, on_delete=models.CASCADE)
     street_address = models.CharField(max_length=100)
@@ -66,6 +75,7 @@ class Order(models.Model):
     
 class OrderProduct(models.Model):
         
+<<<<<<< HEAD
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=c.LENGTH)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL,blank=True, null=True)
@@ -73,6 +83,15 @@ class OrderProduct(models.Model):
     def __str__(self):
         return f"{self.quantity} of {self.product.title}"
 
+=======
+    item = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL,blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.quantity} of {self.item.title}"
+
+>>>>>>> Show Cake
     
 class Coupon(models.Model):
     code = models.CharField(max_length=15)
