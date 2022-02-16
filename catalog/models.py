@@ -25,7 +25,7 @@ class Address(models.Model):
     default = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user
+        return self.street_address
 
     class Meta:
         verbose_name_plural = 'Addresses'
@@ -34,11 +34,18 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     price = models.FloatField()
     description = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     quantity = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
+    @property
+    def imageURL(self):
+        try: 
+            url=self.image.url
+        except:
+            url=''
+        return url
     
 class OrderProduct(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -84,3 +91,4 @@ class Coupon(models.Model):
     
     def __str__(self):
         return self.code
+
