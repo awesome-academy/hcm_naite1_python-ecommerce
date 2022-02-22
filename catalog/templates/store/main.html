@@ -1,0 +1,41 @@
+{% load static %}
+{% load i18n %}
+<html>
+<head>
+  <title>{%trans 'Cake'%}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'store' %}">{%trans 'Delicious'%}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>     
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'store' %}">{%trans 'Product'%} <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <a href="{% url 'login' %}"class="btn btn-warning">{%trans 'Login'%}</a>
+        <a href="{% url 'login' %}"class="btn btn-warning">{%trans 'SignUp'%}</a>
+        <a href="{% url 'cart' %}">
+            <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+        </a>
+        <p id="cart-total">0</p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <br>
+    {% block content %}
+    {% endblock content %}
+  </div>
+  <script src="{% static 'css/popper.min.js' %}"></script>
+  <script src="{% static 'static/css/jquery-3.4.1.slim.min.js' %}"></script>
+  <script src="{% static 'css/popper.min.js' %}"></script>
+</body>
+</html>
