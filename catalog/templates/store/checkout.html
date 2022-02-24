@@ -49,6 +49,18 @@
       <hr>
       <h3>{%trans 'Order Summary'%}</h3>
       <hr>
+<<<<<<< HEAD
+      {%for item in items%}
+      <div class="cart-row">
+        <div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
+        <div style="flex:2"><p>{{item.product.title}}</p></div>
+        <div style="flex:1"><p>VND {{item.product.price|floatformat:3}}</p></div>
+        <div style="flex:1"><p>{{item.quantity}}</p></div>
+      </div>
+      {%endfor%}
+      <h5>{%trans 'Items:   '%}{{order.get_cart_products}}</h5>
+      <h5>{%trans 'Total:   '%}{{order.get_cart_total|floatformat:3}}</h5>
+=======
       <div class="cart-row">
         <div style="flex:2"><img class="row-image" src="{% static 'images/placeholder.png' %}"></div>
         <div style="flex:2"><p>{%trans 'Product 1'%}</p></div>
@@ -57,6 +69,7 @@
       </div>
       <h5>{%trans 'Items:   2'%}</h5>
       <h5>{%trans 'Total:   $4'%}</h5>
+>>>>>>> Show Cake
     </div>
   </div>
 </div>
